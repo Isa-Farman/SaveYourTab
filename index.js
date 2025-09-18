@@ -19,8 +19,8 @@ const ulEl = document.getElementById("ul-el")
 const deletebtn = document.getElementById("delete-btn")
 
 function render(leads){
-    listItems = ""
-    for( i=0; i < leads.length; i++ ){
+    let listItems = ""
+    for( let i=0; i < leads.length; i++ ){
         listItems += `
             <li>
             <a  
@@ -42,7 +42,9 @@ inputbtn.addEventListener("click", function(){
 })
 
 onValue(referanceInDB, function(snapshot){
-    console.log(snapshot.val())
+    const snapshotValues = snapshot.val()
+    const leads = Object.values(snapshotValues)
+    render(leads)
 })
 
 
